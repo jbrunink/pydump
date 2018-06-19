@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  sharex_proxy:
+    build: .
+    image: sharex_proxy
+    container_name: sharex_proxy
+    volumes:
+      - ./data:/usr/src/app/data
+    environment:
+      - DATABASE=/usr/src/app/data/gdrive.db
+      - URL=https://dump.koppelvlak.net
+      - ROOT_FOLDER=1C0ZM4Sbu7VD46oDkw1Jrddo0FgHab8AK
+    restart: always
+    ports:
+      - 127.0.0.1:8000:8000
